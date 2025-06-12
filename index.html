@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujoy Roy - Cybersecurity Expert</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts: Inter & Fira Code for mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom scrollbar for a more modern feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d3748;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5568;
+        }
+        
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark blue-gray */
+            color: #d1d5db; /* Light gray text */
+        }
+
+        /* Light mode styles */
+        .light body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        /* Section title styling with neon accent */
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-center mb-12 relative;
+        }
+        .section-title::after {
+            content: '';
+            @apply w-24 h-1 bg-cyan-400 absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full;
+        }
+        
+        /* Glassmorphism effect for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            @apply rounded-xl shadow-lg transition-all duration-300;
+        }
+
+        .light .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+             border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+        }
+        
+        /* Typing animation styles */
+        .typewriter-text {
+            font-family: 'Fira Code', monospace;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.5rem; /* Adjust to match text size */
+            background-color: #22d3ee; /* cyan-400 */
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-white">Sujoy<span class="text-cyan-400">Roy</span></a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-cyan-400 transition">About</a>
+                <a href="#services" class="text-gray-300 hover:text-cyan-400 transition">Services</a>
+                <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition">Projects</a>
+                <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition">Skills</a>
+                <a href="#blog" class="text-gray-300 hover:text-cyan-400 transition">Blog</a>
+                <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-full transition">Contact Me</a>
+            </div>
+            <!-- Dark Mode Toggle -->
+            <button id="darkModeToggle" class="p-2 rounded-full text-gray-300 hover:bg-gray-700">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="mobileMenuBtn" class="md:hidden p-2 rounded-full text-gray-300 hover:bg-gray-700">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-gray-800/90 backdrop-blur-sm">
+            <a href="#about" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">About</a>
+            <a href="#services" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Services</a>
+            <a href="#projects" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="#skills" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Skills</a>
+            <a href="#blog" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Blog</a>
+            <a href="#contact" class="block py-2 px-6 text-gray-300 hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home/Hero Section -->
+        <section id="home" class="h-screen flex items-center justify-center relative overflow-hidden">
+             <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-80"></div>
+             <div class="absolute inset-0 z-0 opacity-10">
+                <!-- Background pattern -->
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(2) rotate(45)"><rect x="0" y="0" width="100%" height="100%" fill="none"/><path d="M10-10l20 20m0-40l-40 40" stroke-width="1" stroke="rgba(0,255,255,0.3)" fill="none"/></pattern></defs><rect width="800%" height="800%" transform="translate(0,0)" fill="url(#a)"/></svg>
+            </div>
+            <div class="container mx-auto px-6 text-center z-10">
+                <img src="https://placehold.co/150x150/000000/FFFFFF?text=SR" alt="Sujoy Roy" class="w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto mb-6 border-4 border-cyan-400 shadow-lg shadow-cyan-500/20">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">Sujoy Roy</h1>
+                <p class="text-lg md:text-2xl text-cyan-300 h-10">
+                    <span id="typewriter" class="typewriter-text"></span><span class="cursor"></span>
+                </p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#projects" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">View My Work</a>
+                    <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">About Me</h2>
+                <div class="grid md:grid-cols-5 gap-10 items-center">
+                    <div class="md:col-span-2">
+                        <div class="glass-card p-6">
+                           <img src="https://placehold.co/400x400/1a202c/FFFFFF?text=Sujoy+Roy" alt="Sujoy Roy Professional Photo" class="rounded-lg shadow-2xl w-full">
+                        </div>
+                    </div>
+                    <div class="md:col-span-3">
+                        <p class="text-lg mb-4 text-gray-300">
+                            Hello! I'm Sujoy Roy, a passionate and certified cybersecurity professional with over 7 years of experience in defending digital fortresses. Based in Bangladesh, I specialize in ethical hacking and penetration testing, helping organizations identify and mitigate critical vulnerabilities before malicious actors can exploit them.
+                        </p>
+                        <p class="text-lg mb-6 text-gray-300">
+                            My journey in cybersecurity is driven by a relentless curiosity and a commitment to staying ahead of the evolving threat landscape. I hold industry-recognized certifications like <strong class="text-cyan-400">CEH</strong>, <strong class="text-cyan-400">OSCP</strong>, and <strong class="text-cyan-400">CompTIA Security+</strong>, which validate my expertise in both offensive and defensive security practices.
+                        </p>
+                        <a href="/path-to-your/resume.pdf" download class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-full transition">
+                            <i class="fas fa-download mr-2"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">Services Offered</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-shield-halved text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Penetration Testing</h3>
+                        <p class="text-gray-400">Simulating real-world attacks to identify and exploit vulnerabilities in your web apps, networks, and systems.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-bug text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Vulnerability Assessment</h3>
+                        <p class="text-gray-400">Systematic review of security weaknesses in an information system to quantify and prioritize risks.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-network-wired text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Network Security</h3>
+                        <p class="text-gray-400">Designing and implementing secure network architectures and policies to protect data integrity.</p>
+                    </div>
+                     <!-- Service Card 4 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-chalkboard-teacher text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Cybersecurity Training</h3>
+                        <p class="text-gray-400">Corporate and individual training on security awareness, ethical hacking, and defensive strategies.</p>
+                    </div>
+                     <!-- Service Card 5 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-trophy text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Bug Bounty Hunting</h3>
+                        <p class="text-gray-400">Leveraging my expertise to find and report bugs in your platforms through bug bounty programs.</p>
+                    </div>
+                     <!-- Service Card 6 -->
+                    <div class="glass-card p-8 text-center">
+                        <i class="fas fa-user-secret text-5xl text-cyan-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-white mb-2">Red Teaming</h3>
+                        <p class="text-gray-400">Comprehensive, objective-based adversarial attack simulations to test organizational security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / Case Studies Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">Projects & Case Studies</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=WebApp+Pentest" alt="Web App Pentest" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Web App Pentest for XYZ Ltd.</h3>
+                            <p class="text-gray-400 mb-4">Identified and helped remediate 15+ vulnerabilities, including critical SQL Injection and XSS flaws, securing customer data for a major e-commerce platform.</p>
+                            <a href="#" class="text-cyan-400 hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=Phishing+Sim" alt="Phishing Simulation" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Phishing Simulation for a Govt. Dept.</h3>
+                            <p class="text-gray-400 mb-4">Conducted a controlled phishing campaign that improved employee security awareness by 60% and led to a stronger human firewall.</p>
+                             <a href="#" class="text-cyan-400 hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=Network+Audit" alt="Network Audit" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Internal Network Security Audit</h3>
+                            <p class="text-gray-400 mb-4">Performed a comprehensive audit for a financial institution, uncovering misconfigurations and lateral movement paths, leading to a hardened internal network.</p>
+                             <a href="#" class="text-cyan-400 hover:underline">Read Case Study &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Skills Section -->
+        <section id="skills" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">Certifications & Skills</h2>
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-center text-white mb-8">My Certifications</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                         <!-- Logos can be replaced with actual certification logos -->
+                        <img src="https://placehold.co/150x80/FFFFFF/000000?text=CEH" alt="CEH Certification" class="h-16 md:h-20 grayscale hover:grayscale-0 transition duration-300" title="Certified Ethical Hacker">
+                        <img src="https://placehold.co/150x80/FFFFFF/000000?text=OSCP" alt="OSCP Certification" class="h-16 md:h-20 grayscale hover:grayscale-0 transition duration-300" title="Offensive Security Certified Professional">
+                        <img src="https://placehold.co/150x80/FFFFFF/000000?text=Security+" alt="CompTIA Security+" class="h-16 md:h-20 grayscale hover:grayscale-0 transition duration-300" title="CompTIA Security+">
+                        <img src="https://placehold.co/150x80/FFFFFF/000000?text=eJPT" alt="eJPT Certification" class="h-16 md:h-20 grayscale hover:grayscale-0 transition duration-300" title="eLearnSecurity Junior Penetration Tester">
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-center text-white mb-8">My Arsenal</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="glass-card p-6">
+                            <h4 class="text-xl font-semibold text-cyan-400 mb-3">Tools & Frameworks</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> Wireshark</li>
+                                <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> Burp Suite</li>
+                                <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> Metasploit Framework</li>
+                                <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> Nmap</li>
+                                <li><i class="fas fa-check-circle text-cyan-400 mr-2"></i> Nessus</li>
+                            </ul>
+                        </div>
+                        <div class="glass-card p-6">
+                            <h4 class="text-xl font-semibold text-cyan-400 mb-3">Programming & Scripting</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><i class="fab fa-python text-cyan-400 mr-2"></i> Python</li>
+                                <li><i class="fas fa-terminal text-cyan-400 mr-2"></i> Bash Scripting</li>
+                                <li><i class="fas fa-file-code text-cyan-400 mr-2"></i> PowerShell</li>
+                                <li><i class="fab fa-js-square text-cyan-400 mr-2"></i> JavaScript</li>
+                            </ul>
+                        </div>
+                         <div class="glass-card p-6">
+                            <h4 class="text-xl font-semibold text-cyan-400 mb-3">Expertise Areas</h4>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><i class="fas fa-bug text-cyan-400 mr-2"></i> Web & Mobile Pentesting</li>
+                                <li><i class="fas fa-cloud text-cyan-400 mr-2"></i> Cloud Security (AWS, Azure)</li>
+                                <li><i class="fas fa-lock text-cyan-400 mr-2"></i> Cryptography</li>
+                                <li><i class="fas fa-fingerprint text-cyan-400 mr-2"></i> Digital Forensics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                 <h2 class="section-title text-white">What Clients Say</h2>
+                 <div class="grid md:grid-cols-2 gap-8">
+                     <!-- Testimonial 1 -->
+                     <div class="glass-card p-8">
+                         <p class="text-gray-300 italic mb-4">"Sujoy is an exceptional security professional. His penetration test was thorough, and his report was clear and actionable. He helped us secure our application and gave us peace of mind."</p>
+                         <div class="flex items-center">
+                             <img src="https://placehold.co/50x50/cyan/white?text=JD" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                             <div>
+                                 <p class="font-bold text-white">John Doe</p>
+                                 <p class="text-sm text-gray-400">CEO, Tech Solutions Inc.</p>
+                             </div>
+                         </div>
+                     </div>
+                     <!-- Testimonial 2 -->
+                     <div class="glass-card p-8">
+                         <p class="text-gray-300 italic mb-4">"The cybersecurity training Sujoy provided for our team was invaluable. He has a knack for explaining complex topics in an understandable way. Highly recommended!"</p>
+                         <div class="flex items-center">
+                              <img src="https://placehold.co/50x50/cyan/white?text=AS" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                             <div>
+                                 <p class="font-bold text-white">Amina Shah</p>
+                                 <p class="text-sm text-gray-400">IT Manager, Global Exports</p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Blog/Articles Section -->
+        <section id="blog" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">From The Blog</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <!-- Blog Post 1 -->
+                    <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=Log4Shell" alt="Log4Shell" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                             <p class="text-sm text-cyan-400 mb-1">Dec 15, 2023</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Anatomy of an Exploit: Log4Shell</h3>
+                            <p class="text-gray-400 mb-4">A deep dive into the Log4j vulnerability, how it works, and lessons learned for future defense.</p>
+                            <a href="#" class="text-cyan-400 hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Blog Post 2 -->
+                     <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=Phishing" alt="Phishing" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-cyan-400 mb-1">Nov 02, 2023</p>
+                            <h3 class="text-xl font-bold text-white mb-2">5 Simple Tips to Avoid Phishing Scams</h3>
+                            <p class="text-gray-400 mb-4">Practical advice for non-technical users to identify and avoid falling victim to phishing attacks.</p>
+                            <a href="#" class="text-cyan-400 hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                     <!-- Blog Post 3 -->
+                     <div class="glass-card overflow-hidden">
+                        <img src="https://placehold.co/600x400/111827/00FFFF?text=Bug+Bounty" alt="Bug Bounty" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                             <p class="text-sm text-cyan-400 mb-1">Oct 21, 2023</p>
+                            <h3 class="text-xl font-bold text-white mb-2">My First Year in Bug Bounty Hunting</h3>
+                            <p class="text-gray-400 mb-4">Sharing my experience, key findings, and advice for anyone looking to start in bug bounties.</p>
+                            <a href="#" class="text-cyan-400 hover:underline">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                     <a href="#" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition">Visit Blog</a>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white">Get In Touch</h2>
+                <div class="glass-card max-w-4xl mx-auto p-8 md:p-12">
+                    <form action="#" method="POST">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white">
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"></textarea>
+                        </div>
+                        <div class="text-center mt-6">
+                             <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-12 rounded-full transition-transform transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-12">
+                        <p class="text-gray-400 mb-4">Or connect with me on:</p>
+                        <div class="flex justify-center items-center space-x-6">
+                            <a href="#" class="text-gray-400 hover:text-cyan-400 transition text-3xl"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-cyan-400 transition text-3xl"><i class="fab fa-github"></i></a>
+                            <a href="mailto:sujoy.roy@email.com" class="text-gray-400 hover:text-cyan-400 transition text-3xl"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2024 Sujoy Roy. All Rights Reserved.</p>
+            <p>Built with <i class="fas fa-heart text-cyan-400"></i> and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Typewriter Effect ---
+            const typewriterElement = document.getElementById('typewriter');
+            const roles = ["Cybersecurity Expert", "Ethical Hacker", "Penetration Tester"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentRole = roles[roleIndex];
+                let displayText = '';
+
+                if (isDeleting) {
+                    // Deleting text
+                    displayText = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    // Typing text
+                    displayText = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                typewriterElement.textContent = displayText;
+
+                let typeSpeed = isDeleting ? 100 : 200;
+
+                if (!isDeleting && charIndex === currentRole.length) {
+                    // Pause at end of word
+                    typeSpeed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+            }
+            
+            type();
+
+
+            // --- Dark Mode Toggle ---
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const html = document.documentElement;
+
+            // Check for saved theme in localStorage and apply it
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                html.classList.remove('dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+
+            darkModeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                if (html.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+             // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // --- Header Background on Scroll ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-gray-900', 'shadow-lg');
+                } else {
+                    header.classList.remove('bg-gray-900', 'shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
